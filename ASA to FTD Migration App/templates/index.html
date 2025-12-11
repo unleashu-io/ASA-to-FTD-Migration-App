@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASA to FTD Migration Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="display">
+                <h1>ASA to FTD Migration</h1>
+                <div id="status" class="status">Ready</div>
+            </div>
+            
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="fmc_ip">FMC IP Address:</label>
+                    <input type="text" id="fmc_ip" value="192.168.11.44" placeholder="192.168.11.44">
+                </div>
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" placeholder="Enter FMC username">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter FMC password">
+                </div>
+                <button id="authBtn" class="btn btn-primary">Authenticate</button>
+            </div>
+            
+            <div class="migration-steps" id="migrationSteps" style="display: none;">
+                <h2>Migration Steps</h2>
+                <div class="steps-grid">
+                    <button class="step-btn" data-step="network_objects">1. Network Objects</button>
+                    <button class="step-btn" data-step="port_objects">2. Port Objects</button>
+                    <button class="step-btn" data-step="network_groups">3. Network Groups</button>
+                    <button class="step-btn" data-step="port_groups">4. Port Groups</button>
+                    <button class="step-btn" data-step="time_objects">5. Time Objects</button>
+                    <button class="step-btn" data-step="security_zones">6. Security Zones</button>
+                    <button class="step-btn" data-step="access_policy">7. Access Policy</button>
+                    <button class="step-btn" data-step="access_rules">8. Access Rules</button>
+                    <button class="step-btn" data-step="get_devices">9. Get Devices</button>
+                </div>
+                <button id="deployBtn" class="btn btn-success" style="display: none;">Deploy to Devices</button>
+                <button id="summaryBtn" class="btn btn-info">View Summary</button>
+            </div>
+            
+            <div class="output-section">
+                <h3>Output Log</h3>
+                <div id="output" class="output-log"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
